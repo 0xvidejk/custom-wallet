@@ -49,10 +49,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-
-    "& > *": {
-      margin: "8px 0",
-    },
+    gap: "8px",
   }),
 };
 
