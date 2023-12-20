@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import { COLORS } from "utils/constants";
 
 const styles = {
-  welcomePagecontainer: css({
+  welcomePageContainer: css({
     height: "100%",
     display: "flex",
     justifyContent: "center",
