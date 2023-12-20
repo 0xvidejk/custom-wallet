@@ -1,13 +1,26 @@
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
+import { defineConfig } from "vite";
+
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
-  plugins: [react()],
+  plugins: [
+    react({
+      jsxImportSource: "@emotion/react",
+      babel: {
+        plugins: ["@emotion/babel-plugin"],
+      },
+    }),
+  ],
   resolve: {
     alias: {
-      // eslint-disable-next-line no-undef
-      src: path.resolve(__dirname, "./src"),
+      src: "/src",
+      pages: "/src/pages",
+      components: "/src/components",
+      utils: "/src/utils",
+      assets: "/src/assets",
+      routes: "/src/routes",
+      store: "/src/store",
+      styles: "/src/styles",
     },
   },
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
