@@ -25,3 +25,7 @@ dist-ssr
 
 # env files
 .env 
+
+# IDE
+.idea
+.vscode
