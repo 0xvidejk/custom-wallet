@@ -32,3 +32,9 @@ export const COLORS = {
     SECONDARY: "#F5F5F5",
   },
 };
+
+export const CREATE_WALLET_STEPS = {
+  CREATE: "create password",
+  SECURE: "secure wallet",
+  CONFIRM: "confirm secret phrase",
+};
