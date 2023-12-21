@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { CircularProgress, Input } from "@mui/material";
@@ -10,6 +10,7 @@ import { encryptWalletInChunks } from "helpers/encryptWalletInChunks";
 import { generateRandomThreeIndexes } from "helpers/generateRandomThreeIndexes";
 import styles from "pages/CreateWalletPage/styles";
 import { getMnemonic, getPassword } from "store/selectors/accountSelector";
+import { setWalletData } from "store/slices/accountSlice";
 import { v4 as uuidV4 } from "uuid";
 
 import CustomButton from "components/common/CustomButton";
@@ -21,6 +22,7 @@ function ThirdStep() {
     progress: 0,
   });
   const mnemonic = useSelector(getMnemonic);
+  const dispatch = useDispatch();
   const userPassword = useSelector(getPassword);
   const mnemonicArray = mnemonic.split(" ");
   const randomThreeIndexes = useMemo(() => generateRandomThreeIndexes(), []);
@@ -67,8 +69,9 @@ function ThirdStep() {
             .then(({ profile_name }) => {
               if (profile_name !== userName)
                 throw new Error("Failed to create user profile");
-              setLoadingState({ isLoading: false, progress: 0 });
+              dispatch(setWalletData({ address: wallet.address, mnemonic }));
               toast.success("User profile created successfully");
+              setLoadingState({ isLoading: false, progress: 0 });
               navigate("/congratulations");
             })
             .catch((error) => {

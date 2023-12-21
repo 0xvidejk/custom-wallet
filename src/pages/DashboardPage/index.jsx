@@ -1,6 +1,7 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Input } from "@mui/material";
+import { toast } from "react-toastify";
+import { CircularProgress, Input } from "@mui/material";
 import { id, keccak256, Wallet } from "ethers";
 import { useFormik } from "formik";
 import { getEthBalance } from "helpers/getEthBalance";
@@ -18,6 +19,7 @@ import CustomTypography from "components/common/CustomTypography";
 
 function DashboardPage() {
   const [isRevealing, setIsRevealing] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [decryptedMnemonic, setDecryptedMnemonic] = useState("");
   const encryptedWalletData = useSelector(getEncryptedWalletData);
   const walletData = useSelector(getWalletData);
@@ -29,14 +31,21 @@ function DashboardPage() {
       password: "",
     },
     onSubmit: (values) => {
-      const { password } = values;
-      const hashedPassword = keccak256(id(password));
-      const { mnemonic } = Wallet.fromEncryptedJsonSync(
-        encryptedWalletData,
-        hashedPassword,
-      );
-      setIsRevealing(true);
-      setDecryptedMnemonic(mnemonic.phrase);
+      try {
+        setIsLoading(true);
+        const { password } = values;
+        const hashedPassword = keccak256(id(password));
+        const { mnemonic } = Wallet.fromEncryptedJsonSync(
+          encryptedWalletData,
+          hashedPassword,
+        );
+        setIsRevealing(true);
+        setDecryptedMnemonic(mnemonic.phrase);
+      } catch (error) {
+        toast.error("Wrong password. Error message:", error);
+      } finally {
+        setIsLoading(false);
+      }
     },
   });
   const refreshBalance = useCallback(async () => {
@@ -46,6 +55,7 @@ function DashboardPage() {
   }, [dispatch, walletData.address, provider]);
 
   useEffect(() => {
+    if (!walletData.address) return;
     const intervalId = setInterval(() => {
       refreshBalance();
     }, 5000);
@@ -53,7 +63,7 @@ function DashboardPage() {
     return () => {
       clearInterval(intervalId);
     };
-  }, [refreshBalance]);
+  }, [refreshBalance, walletData.address]);
 
   return (
     <section css={styles.dashboardPageContainer}>
@@ -103,8 +113,12 @@ function DashboardPage() {
                 type="password"
                 name="password"
               />
-              <CustomButton css={{ marginLeft: "20px" }} type="submit">
-                Submit
+              <CustomButton
+                disabled={isLoading}
+                css={{ marginLeft: "20px" }}
+                type="submit"
+              >
+                {isLoading ? <CircularProgress /> : "Submit"}
               </CustomButton>
             </form>
             <CustomTypography

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { invoke } from "@tauri-apps/api";
 import {
   setEncryptedWalletData,
@@ -16,15 +17,21 @@ function Layout() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
-    invoke("get_user_profile").then((data) => {
-      if (data) {
-        dispatch(setPasswordHash(data.password_hash));
-        dispatch(setEncryptedWalletData(data.encrypted_wallet_data));
-        navigate("/welcome-back");
-      } else {
+    invoke("get_user_profile")
+      .then((data) => {
+        if (data) {
+          console.log("Retrieved local data:", data);
+          dispatch(setPasswordHash(data.password_hash));
+          dispatch(setEncryptedWalletData(data.encrypted_wallet_data));
+          navigate("/welcome-back");
+        } else {
+          navigate("/");
+        }
+      })
+      .catch(() => {
+        toast.warn("Error retrieving local data");
         navigate("/");
-      }
-    });
+      });
   }, [navigate, dispatch]);
 
   return (
