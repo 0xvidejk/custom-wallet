@@ -24,6 +24,10 @@ To start the first step is dependencies installation:
 
 ## Production Building 
 
+```yarn tauri build```  
+
+> NOTE: folder target in `src-tauri` folder will have an executable if it is windows, and AppImage if it is Linux 
+
 ## Environment Variables
 
 | Environment Variable  | Value |
