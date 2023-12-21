@@ -20,6 +20,7 @@ export default defineConfig(async () => ({
       assets: "/src/assets",
       routes: "/src/routes",
       store: "/src/store",
+      helpers: "/src/helpers",
       styles: "/src/styles",
     },
   },

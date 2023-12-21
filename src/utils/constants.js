@@ -31,4 +31,20 @@ export const COLORS = {
     PRIMARY: "#272727",
     SECONDARY: "#F5F5F5",
   },
+  UTILS: {
+    SUCCESS: "#00C853",
+    ERROR: "#D50000",
+  },
 };
+
+export const CREATE_WALLET_STEPS = {
+  CREATE: "Create password",
+  SECURE: "Secure wallet",
+  CONFIRM: "Confirm secret phrase",
+};
+
+export const SECURE_WALLET_TIPS = [
+  "Save in a password manager;",
+  "Store in a safe deposit box;",
+  "Write down and store in multiple secret places.",
+];

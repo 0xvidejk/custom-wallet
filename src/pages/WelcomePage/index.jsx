@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import CustomWalletLogo from "assets/logo.png";
 import styles from "pages/WelcomePage/styles";
 
@@ -5,8 +6,10 @@ import CustomButton from "components/common/CustomButton";
 import CustomTypography from "components/common/CustomTypography";
 
 function WelcomePage() {
+  const navigate = useNavigate();
+
   return (
-    <section css={styles.welcomePagecontainer}>
+    <section css={styles.welcomePageContainer}>
       <div css={styles.welcomePageBox}>
         <CustomTypography variant="heading" css={styles.welcomePageHeading}>
           Let&#39;s get started with{" "}
@@ -27,7 +30,9 @@ function WelcomePage() {
           alt="Custom Wallet logo"
         />
         <div css={styles.welcomePageButtonsBlock}>
-          <CustomButton>Create a wallet</CustomButton>
+          <CustomButton onClick={() => navigate("/create-wallet")}>
+            Create a wallet
+          </CustomButton>
           <CustomButton variant="outlined">
             Import an existing wallet
           </CustomButton>

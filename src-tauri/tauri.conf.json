@@ -12,7 +12,11 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "all": false,
+      "clipboard": {
+        "readText": true,
+        "writeText": true
+      }
     },
     "bundle": {
       "active": true,
@@ -56,10 +60,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 768,
         "resizable": true,
         "title": "Custom Wallet for Interexy",
-        "width": 800
+        "width": 1024
       }
     ]
   }
