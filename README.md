@@ -1,7 +1,32 @@
-# Tauri + React
+# Custom Wallet for Interexy - Task for checking technical skills 
 
-This template should help get you started developing with Tauri and React in Vite.
+## Project Description
+The custom wallet for Interexy company for creating and accessing a simple Ethereum wallet. The application has two main parts: a setup phase for wallet creation and a main screen for wallet interaction. Developed as a part of checking technical skills using the following technologies:
 
-## Recommended IDE Setup
+`Tauri` - a base for creation of cross-platform applications using JS and Rust.
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+`Vite with React.js` - a frontend part of  application.
+
+`MaterialUI & Emotion` - styling libraries used for creation of modern and acceptable UI.
+
+## Instalation
+This project uses `yarn` package manager.
+
+To start the first step is dependencies installation:
+
+```yarn```
+
+> NOTE: Keep in mind that the build of application will be created for the OS where you ran `yarn`, as it checks for shell you use. For example: `Ubuntu` users using Bash terminal will build application for LinuxOS, while `Windows` users using Powershell to run `yarn` command will build .exe application for Windows OS 
+
+## Run In Development
+
+```yarn tauri dev```
+
+## Production Building 
+
+## Environment Variables
+
+| Environment Variable  | Value |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+

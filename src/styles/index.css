@@ -1,0 +1,6 @@
+@import url("normalize.css");
+@import url("@fontsource-variable/montserrat");
+
+* {
+    font-family: 'Montserrat Variable', sans-serif;
+}

@@ -1,0 +1,50 @@
+{
+  "globals": {
+  "process": true
+},
+  "env": {
+  "browser": true,
+    "es2021": true
+},
+  "extends": [
+  "eslint:recommended",
+  "plugin:react/recommended",
+  "plugin:prettier/recommended",
+  "plugin:react-hooks/recommended"
+],
+  "overrides": [],
+  "parserOptions": {
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "ecmaVersion": 12,
+    "sourceType": "module"
+},
+  "plugins": ["react", "prettier", "simple-import-sort"],
+  "rules": {
+    "prettier/prettier": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/no-unknown-property": "off",
+    "no-unused-vars": "warn",
+    "react/prop-types": "off",
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          // Packages `react` related packages come first.
+          ["^react", "^@?\\w"],
+          // Internal packages.
+          ["^(@|components)(/.*|$)"],
+          // Side effect imports.
+          ["^\\u0000"],
+          // Parent imports. Put `..` last.
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          // Other relative imports. Put same-folder imports and `.` last.
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          // Style imports.
+          ["^.+\\.?(css)$"]
+        ]
+      }
+    ]
+  }
+}
