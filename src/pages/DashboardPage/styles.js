@@ -2,14 +2,14 @@ import { css } from "@emotion/react";
 import { COLORS } from "utils/constants";
 
 const styles = {
-  welcomePageContainer: css({
+  dashboardPageContainer: css({
     flex: "1 0 100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   }),
 
-  welcomePageBox: css({
+  dashboardPageBox: css({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -21,17 +21,17 @@ const styles = {
     borderRadius: "36px",
   }),
 
-  welcomePageHeading: css({
+  dashboardPageHeading: css({
     textTransform: "uppercase",
   }),
 
-  welcomePageHeadingColored: css({
+  dashboardPageHeadingColored: css({
     textTransform: "uppercase",
     fontWeight: "800",
     color: COLORS.BRAND.VISTA_BLUE,
   }),
 
-  welcomePageSubheading: css({
+  dashboardPageSubheading: css({
     marginTop: "8px",
     textAlign: "center",
     fontSize: "16px",
@@ -41,15 +41,44 @@ const styles = {
       color: COLORS.BRAND.VISTA_BLUE,
     },
   }),
-  welcomePageImageLogo: css({
+  dashboardPageImageLogo: css({
     width: "250px",
   }),
 
-  welcomePageButtonsBlock: css({
+  dashboardPageButtonsBlock: css({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     gap: "8px",
+  }),
+
+  dashboardPageInput: css({
+    marginTop: "16px",
+    "& .MuiInputBase-root": {
+      color: COLORS.BRAND.FLORAL,
+      "&::before": {
+        borderBottom: `1px solid ${COLORS.BRAND.FLORAL}`,
+      },
+      "&:hover": {
+        "&:not(.Mui-disabled, .Mui-error):before": {
+          borderBottom: `2px solid ${COLORS.BRAND.FLORAL}`,
+        },
+      },
+    },
+
+    "& .MuiFormLabel-root": {
+      color: COLORS.BRAND.FLORAL,
+    },
+  }),
+
+  dashboardPageVisibilityIcon: css({
+    "& path": {
+      fill: COLORS.BRAND.FLORAL,
+    },
+  }),
+
+  dashboardPageSubmitButton: css({
+    marginTop: "30px",
   }),
 };
 

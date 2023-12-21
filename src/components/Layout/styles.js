@@ -3,11 +3,10 @@ import { COLORS } from "utils/constants";
 
 const styles = {
   container: css({
-    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "100vh",
     backgroundColor: COLORS.BRAND.JET_DARK,
-  }),
-  content: css({
-    height: "100%",
   }),
 };
 

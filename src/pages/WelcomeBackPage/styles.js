@@ -2,14 +2,14 @@ import { css } from "@emotion/react";
 import { COLORS } from "utils/constants";
 
 const styles = {
-  welcomePageContainer: css({
+  WelcomeBackPageContainer: css({
     flex: "1 0 100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   }),
 
-  welcomePageBox: css({
+  WelcomeBackPageBox: css({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -21,17 +21,17 @@ const styles = {
     borderRadius: "36px",
   }),
 
-  welcomePageHeading: css({
+  WelcomeBackPageHeading: css({
     textTransform: "uppercase",
   }),
 
-  welcomePageHeadingColored: css({
+  WelcomeBackPageHeadingColored: css({
     textTransform: "uppercase",
     fontWeight: "800",
     color: COLORS.BRAND.VISTA_BLUE,
   }),
 
-  welcomePageSubheading: css({
+  WelcomeBackPageSubheading: css({
     marginTop: "8px",
     textAlign: "center",
     fontSize: "16px",
@@ -41,15 +41,44 @@ const styles = {
       color: COLORS.BRAND.VISTA_BLUE,
     },
   }),
-  welcomePageImageLogo: css({
+  WelcomeBackPageImageLogo: css({
     width: "250px",
   }),
 
-  welcomePageButtonsBlock: css({
+  WelcomeBackPageButtonsBlock: css({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     gap: "8px",
+  }),
+
+  WelcomeBackPageInput: css({
+    marginTop: "16px",
+    "& .MuiInputBase-root": {
+      color: COLORS.BRAND.FLORAL,
+      "&::before": {
+        borderBottom: `1px solid ${COLORS.BRAND.FLORAL}`,
+      },
+      "&:hover": {
+        "&:not(.Mui-disabled, .Mui-error):before": {
+          borderBottom: `2px solid ${COLORS.BRAND.FLORAL}`,
+        },
+      },
+    },
+
+    "& .MuiFormLabel-root": {
+      color: COLORS.BRAND.FLORAL,
+    },
+  }),
+
+  WelcomeBackPageVisibilityIcon: css({
+    "& path": {
+      fill: COLORS.BRAND.FLORAL,
+    },
+  }),
+
+  WelcomeBackPageSubmitButton: css({
+    marginTop: "30px",
   }),
 };
 

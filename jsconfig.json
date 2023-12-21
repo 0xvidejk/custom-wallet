@@ -9,6 +9,7 @@
       "routes/*": ["./src/routes/*"],
       "store/*": ["./src/store/*"],
       "styles/*": ["./src/styles"],
+      "helpers/*": ["./src/helpers/*"],
       "src/*": ["./src/*"],
     }
   },

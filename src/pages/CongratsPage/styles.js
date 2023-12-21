@@ -2,14 +2,15 @@ import { css } from "@emotion/react";
 import { COLORS } from "utils/constants";
 
 const styles = {
-  welcomePageContainer: css({
-    flex: "1 0 100%",
+  congratsPageContainer: css({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+
+    flex: "1 0 100%",
   }),
 
-  welcomePageBox: css({
+  congratsPageBox: css({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -21,35 +22,19 @@ const styles = {
     borderRadius: "36px",
   }),
 
-  welcomePageHeading: css({
-    textTransform: "uppercase",
+  congratsPageHeading: css({
+    marginBottom: "16px",
   }),
 
-  welcomePageHeadingColored: css({
-    textTransform: "uppercase",
-    fontWeight: "800",
-    color: COLORS.BRAND.VISTA_BLUE,
-  }),
-
-  welcomePageSubheading: css({
-    marginTop: "8px",
+  congratsPageSubheading: css({
     textAlign: "center",
-    fontSize: "16px",
-
+    "&:not(:last-of-type)": { marginTop: "32px" },
+    "&:last-of-type": { marginBottom: "32px" },
     "& > span": {
+      textTransform: "uppercase",
       fontWeight: "700",
       color: COLORS.BRAND.VISTA_BLUE,
     },
-  }),
-  welcomePageImageLogo: css({
-    width: "250px",
-  }),
-
-  welcomePageButtonsBlock: css({
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    gap: "8px",
   }),
 };
 
