@@ -1,0 +1,21 @@
+@keyframes skeleton-loading {
+    0% {
+      color: hsl(216, 49%, 87%);
+    }
+    100% {
+      color: hsl(216, 49%, 57%);
+    }
+  }
+
+  @keyframes refresh-rotate {
+    0% {
+      opacity: 0.5;
+      transform: rotate(0deg);
+    }
+    50% {opacity: 0.3}
+    100% {
+      opacity: 0.5;
+      transform: rotate(360deg);
+    }
+  }
+    
