@@ -20,9 +20,10 @@ fn create_user_profile(user_name: String, password_hash: String, encrypted_walle
   // Create the JSON structure
   let data = json!({
       "createdTimestamp": created_timestamp,
-      "profile_name": user_name,
-      "password_hash": password_hash,
-      "encrypted_wallet_data": encrypted_wallet_data,
+      "profileName": user_name,
+      "passwordHash": password_hash,
+      "encryptedWalletData": encrypted_wallet_data,
+      "wallets": [] 
   });
 
   // Determine the base directory based on the operating system
@@ -96,7 +97,7 @@ fn get_user_profile() -> Result<Option<Value>, String> {
   // Get the first directory in the CustomWalletData directory
   let mut dirs: ReadDir = match read_dir(&base_dir) {
       Ok(dirs) => dirs,
-      Err(_) => return Ok(None),
+      Err(e) => return Err(e.to_string()),
   };
   let user_dir = match dirs.next() {
       Some(Ok(dir)) => dir.path(),

@@ -1,0 +1,53 @@
+.Toastify__toast-container {
+    width: 100vw;
+    top: 0;
+    right: 0;
+    left:0;
+    padding: 0;
+}
+
+.Toastify__toast {
+    border-radius: 0px;
+    justify-content: center;
+}
+
+.Toastify__toast-body {
+    align-items: center;
+    justify-content: center;
+}
+
+.Toastify__toast-body > div:last-child {
+    flex: initial;
+}
+
+
+
+@keyframes slideInTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }   
+}
+
+.slide-in-top {
+    animation: slideInTop .3s ease-out both;
+}
+
+@keyframes slideOutTop {
+    from {
+        transform: translateY(0);
+    }
+    
+    to {
+        transform: translateY(-100%);
+    }   
+}
+
+.slide-out-top {
+    animation: slideOutTop .3s ease-out both;
+}   
